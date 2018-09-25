@@ -1,0 +1,185 @@
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\author[Sowmya Vajjala]{Instructor: Sowmya Vajjala}
+
+
+\title[LING 120]{LING 120, Fall 2017: \\ Language and Computers}
+%\subtitle{based on Chapter 10 of the textbook}
+
+\date{11 Sep 2017}
+
+\institute{Iowa State University, USA}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\begin{frame}\titlepage
+\end{frame}
+
+\begin{frame}
+\frametitle{Class outline}%5minutes
+\begin{enumerate}
+\item Assignment 1- comments
+\item Topic 2 - Recap
+\item Language Tutoring Systems - Introduction
+\end{enumerate}
+Note: It is a class full of questions!
+\end{frame}
+
+\begin{frame}
+\frametitle{Assignment 1-Comments}
+\begin{itemize}
+\item Unicode for Japanese: There is no single character range. The range depends on the script you are using. It needs to be mentioned along with the range.
+\item ASCII for Greek - does not exist in default version, unless you consider an ASCII encoding for Greek. Several of you put the decimal conversion of Hexadecimal numbers from UTF16 representation as ASCII.
+\item Question 2: My expectation - you observe general voice frequencies for signals, check for intensity, pitch etc for say some selected section of speech. Let us say: how is "online application" heard, and how does the signal look like for all these three samples? Is there high pitch, or high intensity (or low) for one sample vs another etc. 
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Topic 2: Recap}
+\begin{itemize}
+\item Non-word spelling errors - causes and automatic detection
+\item Isolated word spelling error correction 
+\item Contexual spelling error correction
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Topic 2: Recap Questions}
+\begin{itemize}
+\item If I have insertions, deletions and substitutions having a penalty of 1 (and transpositions are not treated separately, but may be as a part of one of these 3 transformations), what is the edit distance between representation and reprasenteshan? \pause 5.
+\item Why will Soundex show same code for Revolutionize and Revolutionalist? \pause
+\item If I follow "error pattern based grammar correction", how will I correct the sentence: "He coming to my house"? \pause
+\item Can error pattern approach be used for non-grammatical, real-word errors? \pause
+\item Can I rely completely on probability based spelling correction with learner language?  
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{}
+\begin{center}
+\Large Topic 3: Language Tutoring Systems
+\end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{Some background questions - 1}
+\begin{itemize}
+\item How many of you learnt a language that is not your native language? \pause
+\item How did you learn? 
+\item Did you use any computer based program, or mobile app while learning? \pause
+\item Did you take any computer based tests to test your proficiency in that language? \pause
+\item When you learnt your native language (at home and at school), did you have any computer games or tests or mobile apps to learn some aspects of language (grammar, vocabulary etc)?
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Some background questions - 2}
+\begin{itemize}
+\item Does it make sense to replace a teacher with a computer? \pause
+\item What benefits does one have with computerized instruction in language learning? \pause
+\item What are the advantages of computer based language exams? \pause
+\item To be able to be a language tutor, what should a computer be able to do? 
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Computer Assisted Language Learning}
+Advantages: 
+\begin{itemize}
+\item Individualized, personal feedback
+\item More and more practice with specific patterns of language, idioms of the language etc. 
+\item No worries about limited classroom interaction with the instructor
+\item Unlike humans, a computer is objective with all students
+\end{itemize} \pause
+Questionable stuff: 
+\begin{itemize}
+\item Can we trust a computer?
+\item Is it really possible to build such systems?  
+\item Is it really free of bias?
+\end {itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{What should a CALL system have?}
+Discuss in groups of 3, and list some features a computer based language tutor should have. (5-10min)
+\end{frame}
+
+\begin{frame}
+\frametitle{A typical CALL system}
+\begin{itemize}
+\item Frame based CALL system: everything is pre-set by the instructors (questions, answers, feedback, screen sequence etc). So, Task of the computer is to just follow this, and do the grading. 
+\item linear or branching: depending on whether the sequence of questions is based on the current answer. \pause
+\item General problem: very specific kind of questions, knowledge etc will be tested. New stuff has to be added explicitly. 
+\item How can we make such a system more dynamic, and flexible?? \pause - it should be able to process natural language.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Some tasks an intelligent CALL system should do}
+\begin{itemize}
+\item Generate different kinds of questions
+\item Automatically evaluate answers
+\item Show different kinds of reading materials (from the web too, if needed - not limited to selected frames)
+\item Give feedback to learners if they make mistakes.
+\end{itemize}
+... 
+\end{frame}
+
+\begin{frame}
+\frametitle{Different questions}
+What are the different kinds of questions to test language learning?
+\begin{itemize}
+\item Fill in the blank questions
+\item multiple choice
+\item True/False
+\item short answer questions
+\item Free text recall
+\end{itemize}
+... how are such questions created and evaluated? 
+\end{frame}
+
+\begin{frame}
+\frametitle{Fill in the blanks}
+\begin{itemize}
+\item Task: generating a blank, asking learner to fill it, and evaluating if the answer is correct.
+\item Sounds straight forward... what is the issue? \pause
+\item What should I choose as a blank? How many blanks should there be? \pause
+\item Is evaluation really that straight forward? Let us say there is this sentence: "Today is November 5. Tomorrow is $------$".
+\item possible correct answers include: 6th, 6th November, 6th November 2017, 6/11, 11/6, 06 Nov, Nov 6, etc. 
+\item How can the program capture all these answers as one, and as the correct one?
+\end{itemize}
+\end{frame}
+
+%question: how do you choose the gap? 
+\begin{frame}
+\frametitle{Multiple choice}
+\begin{itemize}
+\item Give a question with 3,4 possibilities, and ask user to choose. Straight forward, isn't it? \pause
+\item What question to ask? If we ask for a fill in the blank, what options should we give?
+\item Options should be sufficiently confusing to test the student's ability. So not too easy and not too difficult. What to do?
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Group exercise - attendance for today}
+\begin{itemize}
+\item Let us take this passage \small{\textit{The company was founded in 2009 by Alex Shevchenko and Max Lytvyn. Brad Hoover, the company's chief executive officer, is an investor with a background in engineering who learned about Grammarly while searching for an automated proofreading tool for his own writing. Grammarly, Inc, has headquarters in San Francisco. An additional office is in Kiev.}}
+\normalsize \item If I asked you to create multiple choice questions from this, what questions will you create? and why? 
+\item Write down your questions on a paper and the choices, and the rationale behind choosing them.
+\item Work in groups of 2--3 people. Write your names on the paper and return it to me. This counts as your attendance for today. 
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Next Class}
+\begin{itemize}
+\item Tasks a CALL system need to do
+\item Language analysis needed to perform these tasks
+\item Readings: Chapter 3
+\end{itemize}
+\end{frame}
+
+\end{document}

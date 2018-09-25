@@ -1,0 +1,187 @@
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+
+\author[Sowmya Vajjala]{Instructor: Sowmya Vajjala}
+
+
+\title[LING 120]{LING 120: Language and Computers}
+\subtitle{Semester: FALL 2017}
+
+\date{25 Aug 2017}
+
+\institute{Iowa State University, USA}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\begin{frame}\titlepage
+\end{frame}
+
+\begin{frame}
+\frametitle{Class Outline}
+\begin{itemize}
+\item Quick recap of last class %5-10min
+\item More on Unicode
+\item Encoding speech on computer %10-15min
+%\item Relating written and spoken language - an overview %10min
+\item Assignment 1 description %10min + exercise - another 10min 
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Encoding text on computers}
+\begin{itemize}
+\item Everything is seen as bits and bytes by computer. So, there should be someway to encode text in binary system.
+\pause \item ASCII is one such 7 bit encoding that covers English, numbers, punctuation etc.
+\item It can be extended to other languages by creating 8 bit variations to ASCII.
+\item However, there are so many languages and writing systems. What can we do about that? 
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Unicode}
+\begin{itemize}
+\item Aim: a single representation to represent all characters in all existing writing systems (\url{unicode.org}). \pause
+\item How does it do this?: it uses a 32 bit representation instead of 8 bit!
+\item So, how many characters can it represent? -  $2^{32} = 4,294,967,296$! \pause
+\item As we discussed towards the end of last class, 32 bits for every letter is a problem - waste of space, makes it slow etc. 
+\item What to do??
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{UTF-8, UTF-16, UTF-32}
+\begin{itemize}
+\item Unicode has three representations (UTF- Unicode Transformation Format) - 8, 16, 32 represent the number of bits needed to represent a character in that representation. \pause
+\item How can $2^{32}$ combinations be represented with $2^{16}$ or $2^{8}$ combinations itself?? \pause
+\item The idea is to use variable number of bytes to represent a character (instead of 1 byte all the time or 4 bytes all the time)
+\item How to do that?: Use the left most bits as "flags" to tell the computer about number of bytes used per character. i.e., if the starting bit is 1, it means there is only character. Starting two bits are 11 means - you should expect two bytes per character, and so on. \pause
+\item Good thing about this is: ASCII is already UTF-8, you don't have to change anything.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{UTF-8 Details}
+\begin{itemize}
+\item First byte tells you how many bytes to expect. e.g., if you see something like 11110xxx, you know you should expect this character to be of four bytes.
+\item Second byte on, everything starts with 10 to indicate that it is not the first byte in that sequence. 
+\item Let us take the example of the Greek character $\alpha$. In Unicode, its value is 945, which in binary is 11 10110001. What is this with 32 bits? \pause
+\item 00000000 00000000 00000011 10110001
+\item How can we represent this number with UTF-8? \pause
+\item \textbf{11}001110 \textbf{10}110001
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Question}
+\begin{itemize}
+\item The question I did not manage to ask in last class: open \url{zh.wikipedia.org} in Firefox browser, and find out what the encoding of that page is. Usually, you will also see a host of other encodings - what other options do you see?. What happens if you choose a different encoding instead of the one shown?
+\pause \item You see unreadable text! :-)
+\item Any questions on so far? 
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{If that made you curious about encodings...}
+\begin{itemize}
+\item Follow the khan academy lectures on number systems if you are not familiar with them.
+\item Browse through unicode.org to know more about different language representations
+\item Browse through wikipedia.org, see all different languages in which it exists - try to notice differences between them (scripts, long words, very short words, no punctuation etc)
+\item Think in terms of what this means for a computer
+\end{itemize}
+Note: Make use of the office hours. Send me an email to schedule a time if the office hours does not work for you. 
+\end{frame}
+
+\begin{frame}
+\frametitle{}
+Encoding Speech on Computer
+\end{frame}
+
+\begin{frame}
+\frametitle{Why?}
+\begin{itemize}
+\item Many languages have no written form! How can we work with that language? (why bother?) \pause
+\item Hands free interfaces can be made possible with spoken language encoding (Siri, Echo etc).  Always convenient than typing, isn't it? \pause
+\item What if I cannot provide a interface to type that script on computer? \pause
+\item How can we examine differences in accents, dialects etc when we see them just as text versions? \pause
+\item Teaching pronunciation, Helping speech pathologists diagnose problems, etc. 
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Making sense of speech signals-1}
+\begin{itemize}
+\item One way: Transcribe into a phonetic alphabet (IPA is one such alphabet) that is universal.
+\item Problem? \pause : how do we do that? Doing it manually is very expensive and time consuming!
+\item So how do we represent speech? \pause
+\item by studying the acoustic properties of its sound waves.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Making Sense of Speech Signals-2}
+\begin{itemize}
+\item When we record sound, it is a continuous audio wave. However, they are stored as discrete points, based on something called "sampling rate" (how many times per second do we extract a sound snippet). This tells us about the quality of the recording. 
+\item High sampling rate indicates what quality of recording (better or worse?) \pause - better
+\item Why don't we just take a large sampling rate all the time, then? \pause - more space!
+\item Telephone conversations usually are recorded with 8000 samples per second, general speech recording is 16K or 32K.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{What speech properties are interesting?}
+\begin{itemize}
+\item speech rate (fluency, number of pauses etc)
+\item Loudness/amplitude 
+\item What sound frequencies correspond to different characters in human speech? 
+\item How can we tell sounds apart with this frequency information?
+\item Pitch - how high or low is a sound (useful especially for identifying vowels)
+\item Intonation - rise and fall of pitch
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Assignment 1 description}
+Check the assignment file on Canvas.
+\\ 10 marks, Deadline: 8th September 2017, upload a PDF. 
+\end{frame}
+
+\begin{frame}
+\frametitle{Next Week}
+\begin{itemize}
+\item Topics: Encoding text and speech - conclusion; Writing aids - introduction
+\item To Do: Go through Chapter 1 and Notes, Exercises after it. Ask questions - either on the forum on Canvas or in the class next week.
+\item To Do: Start thinking about Assignment 1
+\item Note: This class is not difficult at all - you just need to be curious about language-computer interaction!
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Question for Today}
+The following phrases/sentences represent some mishearings of songs and possible errors that a speech recognition software can also make. Try to guess an alternate version and post your responses on Canvas forum for today. That is your attendance for today:
+\begin{itemize}
+\item Example: "How to wreck a nice beach" - "How to recognise speech"
+\item "Secret agent man" %secret asian man
+\item "when the rainbow shaves you clean, you'll know" %when the rain washes you clean you'll know
+\item "with my knee on my mind" %with money on my mind
+\item "language interpreters" %language and computers
+\item "synthetic meditation" %syntactic annotation 
+\end{itemize}
+Note: This is not an exam. Just a fun activity to make you think about the topic!
+\end{frame}
+
+\end{document}
+
+Start monday talking about mondegreens:
+%Exercise: "How to wreck a nice beach" vs "How to recognise speech", vs "How to wreck a nice beach"
+(More common than you think - Mondegreens - listen to this Mondegreens link 
+http://www.uh.edu/~mbarber/mondegreens.html
+%Question for Monday: mention one of the problems of speech processing (no breakup of words) and ask how they will solve it. 
+
+%continuation on friday: \item How do we type them on a computer? %10min
+%and then to speech.
+%friday exercise: how do i type Telugu on MacOS?
+%Assignment 1 description
+
+%question for next monday: %\item To Do (optional): Figure out how to type German specific characters on your computer (umlauts)

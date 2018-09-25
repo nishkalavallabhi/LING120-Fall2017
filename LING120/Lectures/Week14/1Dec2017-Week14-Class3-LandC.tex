@@ -1,0 +1,191 @@
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{url}
+
+\author[Sowmya Vajjala]{Instructor: Sowmya Vajjala}
+
+\title[LING 120]{LING 120: \\ Language and Computers}
+\subtitle{Semester: Fall '17}
+
+\date{1 December 2017}
+
+\institute{Iowa State University, USA}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\begin{frame}\titlepage
+\end{frame}
+
+%Next class: Evaluation of MT, Conclusion of this topic. Remind of Finals 1.
+
+\begin{frame}
+\frametitle{Today's class}
+\begin{itemize}
+\item Reminder about Finals and the related deadlines
+\item Discussion about questions from last class
+\item Evaluation of MT
+\item Conclusion of MT
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Discussion about question from last class}
+\begin{itemize}
+\item Task: identify English-Indonesian word translations based on the provided comparable article between the two languages.
+\item Solution: \url{http://nacloweb.org/resources/problems/2011/FS.pdf}
+\item Strategy: Not looking for exact meanings (we don't know the other language!). Looking for contexts (surrounding words), frequency of occurrence, words that go together etc.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Discussion about question from last class}
+Different ways of machine translation:
+\begin{itemize}
+\item Example based MT: Look for matching words or phrases in previous human translations, and assist human translators by doing this. 
+\item Direct MT: Word by word generation of translation
+\item Syntactic Transformation based MT: Rules for changing syntactic structure between source and target languages
+\item Combining Direct and Syntactic MT
+\item Statistical MT (learning from data)
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Questions before I start with evaluation}
+\begin{itemize}
+\item What is a good way to evaluate MT? \pause
+\item Is doing human evaluations easy or difficult?
+\item If I don't have humans sitting there to do evaluations, how can I do automatic evaluations? \pause
+\item What aspects should be considered while doing evaluation of MT systems? \pause
+\item Why bother about evaluation, really? \pause
+\item How are human translations evaluated in professional translators' world? \pause
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Going backwards with answers-1}
+\begin{itemize}
+\item Q: How are human translations evaluated in professional translators' world?
+\item A: Quality is evaluated in terms of number of words edited/corrected in post-translation editing and proof reading.
+\item Q: Can we apply the same measure to MT? \pause
+\item A: May be not sufficient. First, MT may always need editing, second: writing patters of a human and a machine can be completely different. We may need more evaluation measures along with this.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Going backwards with answers-2}
+\begin{itemize}
+\item Q: Why bother about evaluation, really?
+\item A: Some example scenarios: 
+\begin{itemize}
+\item For end users: should I really use MT on my website? Is it any good, or will it reduce my customer base because it will frustrate them? \pause
+\item For MT software developers: How do I know how well are new changes in my program improving the translation quality? \pause
+\item For researchers: How do we compare different MT systems around the world, made for different reasons, by different people, following different approaches? \pause
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Going backwards with answers-3}
+\begin{itemize}
+\item Q: What aspects should be considered while doing evaluation of MT systems?
+\item A: many
+\begin{itemize}
+\item Quality (naturalness, fluency) of translations at sentence level, at the level of full text, quality related to task at hand
+\item Accuracy of translations (no missing info, no additional info)
+\item What kind of errors does the system make, what kind of errors it doesn't make
+\item How does it work with different genres of writing? (fine grained error analysis)
+\item Is it possible to tag "bad translations" to be sent to human translators?
+\item How much of post-editing will humans have with this output? 
+\end{itemize}
+... and so on.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Going backwards with answers-4}
+\begin{itemize}
+\item Q: If I don't have humans sitting there to do evaluations, how can I do automatic evaluations?
+\item A: Ask humans to translate some sentences, give those sentences to MT systems, and compare the degree of overlap between human and machine translations.
+\item There are different evaluation measures that focus on doing this. 
+\item Advantage: automatic evaluation, so we don't have to conduct expensive, time-consuming evaluation studies anymore.
+\item Disadvantage? \pause - we don't know if the MT system is really good or just good on those sentences. We also don't know what is the best measure of closeness to human translation!
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Going backwards with answers-5}
+\begin{itemize}
+\item Q: Is doing human evaluations easy or difficult?
+\item A: Time and Cost. Reliability and Consistency. Meaningfully summarizing human judgements. 
+\item Time and cost: can be addressed by doing crowdsourcing instead of looking for expert human translator judgements. 
+\item Other issues: Difficult
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Going backwards with answers-6}
+\begin{itemize}
+\item Q: What is a good way to evaluate MT?
+\item A: Who is John Galt?
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Why is it difficult to evaluate MT?}
+\begin{itemize}
+\item Language variability - there is no single correct translation!
+\item Human evaluation is subjective
+\item For what purpose are we using MT?
+\item How do we evaluate evaluation?
+\item How do we decide how good is "good enough"?
+\end{itemize}
+Summary: MT evaluation is a research topic in itself! :)
+
+Reference: Slides by Alon Lavie, MT Summit, 2011
+\end{frame}
+
+\begin{frame}
+\frametitle{State of MT today}
+\begin{itemize}
+\item We have usable applications that work across many language pairs (Google Translate, Bing Translate, Babel, Facebook's translate etc)
+\item Not only are they used in different devices, they can also be deployed on your own websites, or applications as a service (if you know some programming, and have some money to license these)
+\\ e.g.: \url{https://azure.microsoft.com/en-us/pricing/details/cognitive-services/translator-text-api/}
+\\ e.g., \url{https://cloud.google.com/translate/pricing}
+\item They are still far from perfect, but are actively improving.
+\item One application that can have a potential impact on multiple aspects of human society in decades to come (something to think about for writing Q2 in Final Exam!)
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Next Week}
+\begin{itemize}
+\item Theme: Revision and some group exercises in the class
+\item Deadlines:
+\begin{itemize}
+\item Final Exam, part 1: Writing a short summary of your Q1 topic (Due tomorrow)
+\item Final Exam, part 2: Do a peer review for one person's Q1 draft above (IN THE CLASS, on 6th December. Don't miss the class!)
+\item Final Exam, part 3: Submit Q1 and Q2, final versions in exams week (13th DEC)
+\end{itemize}
+\item NOTE: No extensions on any of these deadlines!
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Attendance Question}
+\begin{itemize}
+\item Background:
+\begin{itemize}
+\item There is this online competition called "Spooky Author Identification" \\ (\url{https://www.kaggle.com/c/spooky-author-identification})
+\item Task: you're challenged to predict the author of excerpts from horror stories by Edgar Allan Poe, Mary Shelley, and HP Lovecraft.
+\item How does it work: First, they release some set of texts where authors are known, and are one of these.
+\item You should then do "something" which can predict the author of a new text (who among these 3 is most likely?)
+\end{itemize}
+\item Question: What ideas from this course are useful in solving this problem, conceptually speaking? How?
+\end{itemize}
+\end{frame}
+
+\end{document}
+

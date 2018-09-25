@@ -1,0 +1,232 @@
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[graphicx]
+
+\author[Sowmya Vajjala]{Instructor: Sowmya Vajjala}
+
+
+\title[LING 120]{LING 120: \\ Language and Computers}
+\subtitle{Semester: FALL '17}
+
+\date{18 October 2017}
+
+\institute{Iowa State University, USA}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\begin{frame}\titlepage
+\end{frame}
+
+\begin{frame}
+\frametitle{Outline}
+\begin{enumerate}
+\item Text classification: Introduction
+\item Exercise on text classification %Zoink - 20-25 min
+\item Next class: Spam classification/Sentiment analysis - examples of how to do text classification
+\item Later: Evaluating text classification
+\end{enumerate}
+\end{frame}
+
+%sentiment analysis - application scenarios
+\begin{frame}
+\frametitle{What is text classification}
+\begin{itemize}
+\item "Classification" in general refers to grouping entities into pre-defined set of classes, based on some properties. \pause 
+\item Text classification is one of the methods of processing textual data, where the purpose is to categorize the text into one of the pre-defined set of categories, based on the language used. \pause
+\item Let us say I have four categories of textual data: book reviews, movie reviews, electronics reviews and other reviews on amazon.com. The process of taking a review, and assigning it to one of these four categories - is text classification. 
+\item Note: "Text" can be documents, sentences or even words.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Where do we get those "pre-assigned" categories?}
+\begin{itemize}
+\item sometimes, historical data (e.g., if we want to predict weather based on past trends) \pause
+\item sometimes, ask human annotators to categorize small collection of text (e.g., if I keep clicking spam for all spam I see in my inbox, after a while, those messages will be directly classified into spam folder) \pause
+\item For most of the known classification tasks, there are some standard datasets one can use to develop classification models
+\item Eventual evaluation: when you actually use these classifiers somewhere, and you learn something.. or in ecommerce, if the user is satisfied, and revenue is increased.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Where is classification useful?}
+\begin{itemize}
+\item detecting whether the new email you got is spam or not spam. (spam classification)
+\item automatically detecting whether a movie review is positive or negative (opinion mining, sentiment analysis etc.)
+\item identifying if a news article is about "sports" or "politics" or "cinema" or "science" (google)
+\item identifying whether a given word in the sentence refers to a person name or not. 
+\item identifying if a group of words form a multi-word expression or not.
+\item identifying whether a insurance claim is valid or not 
+\item identifying if a post needs urgent attention or can wait (reachout.com)
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{What is difficult about text classification?}
+\begin{itemize}
+\item Let us take this problem of classifying English learners as: beginner, intermediate and advanced.
+\item Let us say we even have 1000 example texts for each category, classified by expert English teachers. 
+\item Now, how do we go about developing a classifier for doing this automatically? \pause
+\item Should we look at vocabulary? use n-grams? errors? somehow capture syntax? \pause
+\item Should we combine everything? How? How do we even work with 3000 documents and come up with patterns?? 
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Text Classification - Applications}
+\begin{itemize}
+\item Think for 5 minutes (may be in groups), and try to list with some applications of text classification you can think of \pause
+\item Some examples: classifying learner errors into different types (spelling, non-spelling, for example); classifying the learners into proficiency levels; General applications: sentiment analysis of product reviews on amazon, grouping search results into categories, recommending news articles related to what you are reading etc.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{some examples of text classification}
+\begin{itemize}
+\item Classifying the text of a tweet into one of the 5 languages: English, French, German, Chinese, Arabic. (language identification)
+\item Predicting whether a review about a product on amazon.com is positive or negative (or neutral) about the product (sentiment)
+\item Whether a webpage's text is suitable for children or not.
+\end{itemize}
+... and so on.
+\end{frame}
+
+\begin{frame}
+\frametitle{}
+\begin{center}
+\Large What does it mean to "learn" to classify?
+\end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{What is Machine learning?}
+\begin{itemize}
+\item If you show a computing machine several examples of something, it can "learn" the patterns in these examples and try to identify identical occurrences for new data. \pause
+\item One example: If I show the machine several articles about Donald Trump, and several articles about Hillary, the machine should be able to learn some patterns seen in both these categories. Patterns can be use of certain words and phrases, use of statistics, syntactic structures in speeches etc. \pause
+\item Basic setup for machine learning: we have access to some set of examples, called "training set". Our goal is to make the machine learn what we want it to learn from those examples. \pause
+\item As an approximation of what it learnt, we test how it does on a "test set". If we are satisfied, we start using this learnt model in real life. 
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Types of Machine learning?}
+Broadly, there are two types of machine learning:
+\begin{itemize}
+\item Supervised learning: when we know our categories
+\item Unsupervised learning: when we want to find out hidden/unknown groupings.
+\end{itemize}
+Note: This is oversimplification. If you really want to know more, enroll in a machine learning course. Coursera has a great introductory course by Andrew Ng (great does not mean easy).
+\end{frame}
+
+\begin{frame}
+\frametitle{Types of Machine learning?}
+Can you think of one "supervised" learning and one "unsupervised" learning scenario for corpus data? 
+\pause 
+Supervised learning: one example is classifying all news articles into either "sports" or "non-sports" \\
+Unsupervised learning: one example is identifying what are the dominant topics discussed on Twitter in the past 10 days. 
+\end{frame}
+
+\begin{frame}
+\frametitle{How does "learning" happen?}
+Two aspects:
+\begin{itemize}
+\item Designing features for the machine to learn
+\item Developing or using an existing learning algorithm that can learn a classification function based on the values of all these features.
+\item An example "function" is learning weights for individual variables in linear regression.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Feature Design}
+\begin{itemize}
+\item What in our opinion can be useful properties to check patterns for a given classification problem?
+\item Let us take the problem of classifying an email into spam or non-spam. What can be useful properties to design such a system? \pause
+\item One more: let us say we want to classify English writing into "beginner", "intermediate" and "advanced". What can be the possible things to look at? \pause
+\item All these properties that can be relevant to perform machine based classification are called "features".
+\item The process automating feature extraction from your data (text or any other form) is called feature engineering.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Feature Design continued}
+There are two ways of doing feature engineering.
+\begin{itemize}
+\item 1. Kitchen sink strategy: In Spam classification example, consider all words or bi/tri grams as features, and leave it to the learning algorithm to choose what works.
+\item Advantage: Easy to do feature engineering, because we do not have to worry about what among those features is relevant.
+\item 2. Hand-crafted: Choosing specific features such as: "Use of all caps", "use of words from list X" for the same problem. 
+\item Advantage: It is easy to understand which features are useful for the classifier and which are not. Disadvantage: Coming up with such specific features can be time consuming.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{In sum, What kind of "features" or "patterns" will the model learn?}
+\begin{itemize}
+\item Word occurrences are the most commonly used patterns.
+\item We can also look at word sequences (Ngrams)
+\item Part of speech tag patterns
+\item All of them put together
+\item Or some other stuff, such as some specialized linguistic patterns (e.g., number followed by some preposition, three adjectives preceding a noun etc.)
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Learning Algorithm}
+\begin{itemize}
+\item Goal of a learning algorithm is to take a feature representation of the training data (texts) and come up with a function that can assign weights to individual features, and use this function to predict the category for any new text it sees. 
+\item Let us say I have 3 features: num. Nouns, num. Verbs, num. Adjectives. I have two categories: A and B. I have 1000 example texts (500 labeled A, 500 labeled B).
+\item A learning algorithm can learn something like this: 
+\begin{enumerate}
+\item Prediction = 0.3*numNN - 0.9*numVB + 1.1*numADJ
+\item If Prediction $<=$1, category is A. else, category is B.
+\end{enumerate}
+\end{itemize}
+Note: This is just one example function I created from air. There are 100s of learning algorithms, and machine learning researchers come up with new ways to learn everyday.
+\end{frame}
+
+\begin{frame}
+\frametitle{How does the machine "learn" these patterns?}
+\begin{itemize}
+\item Lot of machine learning algorithms are already in place to "learn" from several forms of data.
+\item Our job is to pick a couple of them and compare them with our data, and choose the best one. \pause
+\item Good thing about this is: it is like driving a car. you do not have to know all the internal working details to drive it.
+\item Bad thing: you end up working with a black box.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{What is left?}
+\begin{itemize}
+\item How does this actually work, step by step? (Friday)
+\item What is a good measure of evaluating classification? (Monday)
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Today's attendance exercise}
+On Canvas, go to Today's date. Understand the problem in the pdf attachment in the forum posting, and work on that. You can work in teams if you want.
+\end{frame}
+
+\end{document}
+
+in general, if we are interested in assigning a label to a document, the tsk is called classification
+
+call-routing systems, classification by tpic, 
+
+
+    spam filtering, a process which tries to discern E-mail spam messages from legitimate emails
+    email routing, sending an email sent to a general address to a specific address or mailbox depending on topic[13]
+    language identification, automatically determining the language of a text
+    genre classification, automatically determining the genre of a text[14]
+    readability assessment, automatically determining the degree of readability of a text, either to find suitable materials for different age groups or reader types or as part of a larger text simplification system
+    sentiment analysis, determining the attitude of a speaker or a writer with respect to some topic or the overall contextual polarity of a document.
+    health-related classification using social media in public health surveillance [15]
+    article triage, selecting articles that are relevant for manual literature curation, for example as is being done as the first step to generate manually curated annotation databases in biology.[16]
+
+
+
+http://sentiment.vivekn.com/
+http://text-processing.com/demo/sentiment/
+
+long text (movie review) short-text (tweets from finalized full.csv)

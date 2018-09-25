@@ -1,0 +1,179 @@
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\author[Sowmya Vajjala]{Instructor: Sowmya Vajjala}
+
+
+\title[LING 120]{LING 120, Fall 2017 \\ Language and Computers}
+
+\date{25 September 2017}
+
+\institute{Iowa State University, USA}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\begin{frame}\titlepage
+\end{frame}
+
+\begin{frame}
+\frametitle{Class outline}%5minutes
+\begin{enumerate}
+\item Assignment 2 discussion
+\item Recap of Week 5 %15 min up to here.
+\item Searching in large collections of text corpora (not the web) %10min
+\item Introduction to Regular Expressions %10-15 min
+\item Assignment 3 description %up to 10 min here. 
+%Some exercise for today.
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+\frametitle{Assignment 2 discussion}
+\begin{itemize}
+\item Q1: isolated errors
+\begin{itemize}
+\item Some errors have an explanation (learing - could be a missing letter)
+\item Some errors are random, and could have occurred just because it is a test scenario and students were typing in a hurry  
+\item Tools offer various suggestions: learning, leering, leaning, clearing etc.
+\end{itemize} \pause
+\item Q2: contexual errors
+\begin{itemize}
+\item Google seems to offer better suggestions for contexual errors (except "sap opera", why?). 
+\item Grammarly seems to be good at that too (except "golf war", what could be the reason?
+\item "I went their house" - strangely, none got them right.
+\item MS Word does not seem to do any contextual error correction
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{}
+\begin{center}
+Quick recap of last week
+\end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{Topics discussed}
+\begin{itemize}
+\item Searching through structured data
+\item Searching through unstructured data: searching the web
+\item Language issues in search
+\item Indexing the web: term document matrix and inverted index
+\item Ranking the web: Page Rank and other features
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{A few questions}
+\begin{itemize}
+\item What are "stop words"? \pause
+\item Why is stop word removal done in search? \pause
+\item Let T be the total number of pages retrieved for a given search query, R be the number of relevant results among these, and A be the number of actual relevant results on the web.
+\item What is the difference between T and A? \pause
+\item What is R/A? What is R/T? \pause
+\item What is desirable? High precision or High recall? 
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Last class' Exercise}
+\begin{itemize}
+\item Work in groups of 3 and submit a solution to the problem in the handout.
+\item You can also submit this online on Canvas.
+\item question url: \url{http://nacloweb.org/resources/problems/2007/N2007-B.pdf} \pause
+\item solution url: \url{http://www.education.rec.ri.cmu.edu/fire/naclo/pdfs/pooh-encyclopedia-solution.pdf}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Searching Semi-structured data}
+\begin{itemize}
+\item Semi-structured data - is somewhere in between fully structured (tables, excel sheets, databases etc) and unstructured (free text) data.
+\item Examples: IMDB, Wikipedia entries - although it is user contributed text, there are certain templates, categories etc. There is a relatively uniform formatting. So, it is still possible to uncover some patterns. \pause
+\item Let us say I want to collect the universities where all the presidents of US studied so far from Wikipedia. How should I do that? 
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Searching Semi-structured data-2}
+\begin{itemize}
+\item There are relatively few ways to describe someone's education ("X studied at", "X graduated from", "X has a degree from" etc.) 
+\item If we can come up with a "pattern" that covers all these kinds of sentences, that "pattern" can capture the information we need. \pause
+\item Regular expressions are a kind of language to describe such patterns.
+\item They are used in all programming languages, and even in software such as MS Word (you have to find out how!). %On your lab Macs
+\item If you can create a pattern (i.e., I remember my Filename starts with S and has a .pdf extension, but I don't remember its full name) - you can search through lots and lots of text files instantly and get your search results!
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Why bother about regular expressions?}
+\begin{itemize}
+\item Specifically in the context of search: regular expressions can be used to search through large collections of text corpora (not WWW.. stuff like - parliament proceedings over the years, all writings of Mark Twain etc.)
+\item Why search through these if there is WWW? \pause
+\item We can sometimes have specialized questions (e.g., how many times was "affordable health care" discussed in parliament?) for which web search can be overwhelming and with low what? (precision or recall or both?) \pause
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Basic Syntax of Regular Expressions}
+\begin{itemize}
+\item searching for "a" - a
+\item searching for one or more a's - a+
+\item searching for 0 or more a's - a*
+\item searching for a or b - a$|$b
+\item searching for alphabet, digit, punctuation etc - $[:alpha:], [:digit:], [:punct:]$
+\item searching for "a" at the end of a word. a\textbackslash b
+\end{itemize}
+.... and so on. \\
+See also: \url{http://www.petefreitag.com/cheatsheets/regex/}
+\end{frame}
+
+\begin{frame}
+\frametitle{Evaluation of Regular Expressions}
+\begin{itemize}
+\item Precision (Correct matches among identified ones)
+\item Recall (actual number of matches including unidentified ones) \pause
+\item Example of regular expression usage (in LibreOffice)
+\item Jargon alert: True positive, True negative, False positive, False negative
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Assignment 3 description}
+\begin{itemize}
+\item 10 marks, 2 questions (each question has 2 parts, and there is a page 2 for the assignment)
+\item First question is on Topic 3, Second is on Topic 4
+\item Due on October 7th
+\item Description is on Canvas
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Next Class}
+\begin{itemize}
+\item Lab session with regular expressions exercises 
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Attendance Exercise}
+\begin{itemize}
+\item Consider this passage: \\ \small 
+\textit{This assignment consists of two questions and carries a to-
+tal of 10 marks. Submit your assignment as a *PDF* file and name it as:
+your first name–your last name.pdf Late submissions are allowed, but will
+not be awarded full credit.} \normalsize
+\item I want to identify the number of times \textbf{s} appeared at the beginning of the word in this. I use the regular expression: \textbackslash Ws
+\item What is the precision and what is the recall for this regular expression in terms of achieving its goal?
+\end{itemize}
+\end{frame}
+
+\end{document}
+
+%Wednesday: Entire class with exercise on regular expressions with grep?? Q on grep vs egrep
+%Decide on a topic for mid-term too
+
+%Friday: Conclusion of this topic. 

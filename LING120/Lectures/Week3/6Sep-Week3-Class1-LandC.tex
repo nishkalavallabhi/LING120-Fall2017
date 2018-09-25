@@ -1,0 +1,187 @@
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\author[Sowmya Vajjala]{Instructor: Sowmya Vajjala}
+
+
+\title[LING 120]{LING 120: \\ Language and Computers}
+\subtitle{Semester: Fall 2017}
+
+\date{6 September 2017}
+
+\institute{Iowa State University, USA}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\begin{frame}\titlepage
+\end{frame}
+
+\begin{frame}
+\frametitle{Class outline}
+\begin{enumerate}
+\item Review of last week
+\item Isolated word spelling error correction
+\begin{itemize}
+\item Soundex
+\item Edit distance
+\end{itemize}
+\end{enumerate}
+Reminder: Assignment 1 is due this week!!
+\end{frame}
+
+\begin{frame}
+\frametitle{Recap of last week}
+\begin{itemize}
+\item Different kinds of errors, causes of spelling errors etc.
+\item The idea of N-grams and where they can be useful (e.g., contextual error correction, speech recognition, human-machine conversation etc). 
+\item Non-word error detection (e.g., using large dictionaries covering different word forms + a set of rules to ignore certain words such as words beginning in upper case etc)  \pause
+\item Review questions:
+\begin{itemize}
+\item What is a non-word spelling error? \pause
+\item What is a real-word spelling error? \pause 
+\item How do we categorize grammar errors? non-word or real-word?
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Isolated word spelling correction}
+\begin{itemize}
+\item Aim: suggest correction candidates for a mis-spelled word, irrespective of the surrounding words.
+\item What are the three steps to do isolated word spelling correction? \pause
+\begin{itemize}
+\item Detect a error (let us say: dictionary based, or looking for improbable character n-grams)
+\item Identify possible candidates for right spelling (from where?? - topic for today)
+\item Rank them in terms of the most probable word (how? - topic for today)
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Generating possible candidates for right spelling}
+\begin{itemize}
+\item This is typically based on some notion of similarity between words.
+\item i.e., let us say I see a non-word error. The most intuitive way to look for correct words is to look for the closest words for this word in the dictionary. \pause
+\item Let us say I typed "assingment" and a dictionary look-up told me it is a non-word (or may be the character trigram "ngm" never comes in English). What is the right word? How can you say?  \pause
+\item How do we quantify the notion of "closest word" and show possible candidates??
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Grouping similar words: SOUNDEX algorithm}
+\begin{itemize}
+\item Idea: Represent words in such a way that similar sounding words get the same representation
+\item Background: Was originally used to group different spelling variations of names in U.S. Census Data.
+\item Input: a Name 
+\item Output: a code in which a alphabetic character is followed by 3 numbers. 
+\item Using it: since similar sounding words will have same Soundex code, whenever you see a non-word error, look in the dictionary for words with same Soundex code.
+\item These will be the candidate words to suggest as correct spellings. 
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Soundex Procedure}
+\begin{enumerate}
+\item Retain the first letter of the name and drop all occurrences of a, e, i, o, u, y, h, w. 
+\item Replace consonants with digits in the following manner:
+\\ b, f, p, v : 1; 
+\\ c, g, j, k, q, s, x, z : 2
+\\ d,t : 3
+\\ l: 4
+\\ m,n : 5
+\\ r : 6
+\item If there are two adjacent letters with same number (e.g., jj or cz, replace only with a single number)
+\item If there are too few letters in the name, append zeros until there are three numbers. 	
+\item If the name is too long, cut the SOUNDEX after 3 numbers. 
+\end{enumerate} 
+(Note: There are several variants for this)
+\\ refer: \url{https://www.archives.gov/research/census/soundex.html})
+\end{frame}
+
+\begin{frame}
+\frametitle{Using this idea in practice}
+One simple way:
+\begin{itemize}
+\item Convert all entries in a dictionary into soundex form, and build a new form of mapping where the entry is the soundex code and its values are all words with that soundex code in the original dictionary. \pause
+\item Each time you see a spelling error in what the user typed:
+\begin{enumerate}
+\item Calculate the soundex for that word and look for the entry with this soundex in the newly created mapping. 
+\item All these words will be the possible candidates for the mis-spelt word!
+\end{enumerate}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Ranking candidate words: The idea of Edit Distance}
+\begin{itemize}
+\item Idea: define a "distance" measure to find the closest word to a mis-spelling.
+\item How to calculate the distance?: in terms of the number of transformations such as: insertions, deletions, substitutions, transposition of characters etc. \pause
+\item Example 1: if assignment was written as assingment, there is a case of one transposition (gn and ng).
+\item Example 2: if assignment was written as asignment, there is a case of one deletion. \pause
+\item If each such transformation gets a score, the distance between a mis-spelt word and any valid word is the total transformation score.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Solving the edit distance problem}
+\begin{itemize}
+\item For a human, edit distance problem seems like something related to your intuition of language.
+\item For a computer, it is a problem of choosing the "minimum edit distance" out of 1000s of possible options (i.e., to get from the mis-spelt "assingment" to correct candidate "assignment", it is also possible to first insert "ooooooooo" after "a" and deleting "ooooooooo" after a. \pause
+\item Okay, that is an extreme example, but a computer has to examine multiple options before finding the minimum edit distance option.
+\item This is done by something called "Dynamic Programming" in Computer Science. The basic intuition is that you solve the problem step by step (letter by letter), and finally solve the full problem by combining solutions to all these small problems. 
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Using this idea in practice}
+One simple way:
+\begin{itemize}
+\item Each time you see a spelling error in what the user typed:
+\begin{enumerate}
+\item Get all words within an edit-distance of say one or two points.
+\item All these words can be the possible candidates for the mis-spelt word!
+\item You can rank them based on distance. 
+\end{enumerate}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Ranking candidate words: Other solutions}
+Using the notions of 
+\begin{itemize}
+\item Transition probabilities (what is the probability that the next letter is "a" if the current letter is "b")
+\item Confusion probabilities (What is the probability that "k" gets confused as "l" in typing a word)
+\item Word n-gram probabilities (What is the most likely word to appear here, considering previous N-words?)
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Isolated Word Spelling Correction: Conclusion}
+\begin{itemize}
+\item What we discussed are a few simple ways of looking for possible corrections for a spelling error.
+\item Real-life solutions build on these approaches, and add more sophistication to that (More on that if you study further and take a course on natural language processing in future).
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Next Class}
+\begin{enumerate}
+\item Context sensitive real-word error correction
+\item Readings for next class: Chapter 2
+\item Additional References for today's topic:
+\begin{itemize}
+\item Explaining how a computer calculates edit distance with dynamic programming: \url{https://www.youtube.com/watch?v=We3YDTzNXEk}
+\item Also read the "Under the Hood 3" box in Chapter 2. 
+\end{itemize}
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+\frametitle{Attendance exercise for today}
+Visit \url{www.eogn.com/soundex/} and list a few examples of where Soundex will fail. Use some non-word errors and their correct versions and check which pairs have the same soundex and which pairs don't. Try to come up with 2 examples for each case and analyse why are the soundex codes same or different.
+\\ Example: Assignment can have two mis-spellings (among others). Asignment, Assingment - First one will have the same soundex as the original word. Second one won't have. Why? (sounds are different)
+\end{frame}
+
+\end{document}

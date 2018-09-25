@@ -1,0 +1,128 @@
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+
+\author[Sowmya Vajjala]{Instructor: Sowmya Vajjala}
+
+
+\title[LING 120]{LING 120: Language and Computers}
+\subtitle{Semester: FALL 2017}
+
+\date{1 Sep 2017}
+
+\institute{Iowa State University, USA}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\begin{frame}\titlepage
+\end{frame}
+
+\begin{frame}
+\frametitle{Class outline}
+\begin{itemize}
+\item Clarification about terms used yesterday
+\item A group exercise preparing you for next week
+\end{itemize} 
+\end{frame}
+
+\begin{frame}
+\frametitle{Clarification about terms used on Wednesday}
+\begin{itemize}
+\item Non-word error detection
+\item Isolated word error correction
+\item Contexual spelling correction and grammatical error correction (for real-word errors)
+\end{itemize} 
+\end{frame}
+
+\begin{frame}
+\frametitle{Non-word error detection - Dictionaries}
+\begin{itemize}
+\item Dictionary based - but it does not cover all cases, as we saw in the last class.
+\item Usual solution: maintain a dictionary with different word forms etc (add some exceptions - like ignore words with caps etc.) .. 
+
+\item Most spell-checking tools support personalized spell-checking. (What does that mean??)
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Non-word error detection - N-gram methods}
+\begin{itemize}
+\item To some extent, we can detect misspellings even without a dictionary. 
+\item Before talking about "how", what is a character n-gram? \pause
+\item If we collect a large list of valid English words, we can have an estimate of character sequence frequencies in English. 
+\item We can then use it to check for abnormal character sequences in a word, to identify spelling errors. (Makes sense??) \pause
+\item example: "thi" is perhaps a valid character trigram in English, but "qki" is not. 
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Isolated word spelling correction}
+\begin{itemize}
+\item Aim: suggest correction candidates for a mis-spelled word, irrespective of the surrounding words.
+\item Question to test if you did the reading: What are the three steps to do isolated word spelling correction? \pause
+\begin{itemize}
+\item Detect a error (dictionary or n-gram method)
+\item Identify possible candidates for right spelling (from where??)
+\item Rank them in terms of the most probable word (how?)
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Group Exercise}
+\begin{itemize}
+\item Form into groups of 2--3 people, and do the exercise described in the given sheet.
+\item Work together, perhaps spend about 20-25 minutes on the problem, and we will use the remaining time for discussion of what you did.
+\item This counts as your attendance for today.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Background Information}
+\begin{itemize}
+\item n-grams are sequences of n-words.
+\item In the sentence: "I have a book", "I" is a word unigram/1-gram. "I have" is a word bi-gram/2-gram "I have a" is a word trigram/3-gram. "I have a book" is a word 4-gram. and so on.
+\item "I hav" is a character 5 gram with 5 characters - I, space, h, a, v
+\item If I have a large collection of text files (called \textbf{corpus}), I can compile large dictionaries of such word and character n-grams of any arbitrary n, and how frequently are they seen in this corpus.
+\item An example of such a large text corpus is: Wikipedia
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Next Week}
+\begin{itemize}
+\item Topic 1: Isolated spelling error correction
+\item Topic 2: Contextual spelling error correction
+\item Deadlines: Assignment 1 deadline on September 8th.
+\item Reminder: No class on Monday.
+\item Readings: Finish reading Chapter 2
+\end{itemize}
+\end{frame}
+
+
+\end{document}
+
+\begin{frame}
+\frametitle{Generating possible candidates}
+\begin{itemize}
+\item e.g., SOUNDEX
+\item e.g., edit distance 
+\item e.g., Character transition probabilities
+\end{itemize} %one slide on each?
+\end{frame}
+
+\begin{frame}
+\frametitle{Next Week ..} 
+\begin{itemize}
+\item Topic: Grammar correction
+\item Remember: Assignment 1 is due on September 8th next week
+\item Readings: Read Section 2.4 in Chapter 2 in the textbook.
+\item To Do: Work on your assignment!
+\end{itemize}
+\end{frame}
+%advnced: under the hood - dynamic programing stuff.
+
+%exercise: From what you saw so far, which one may be more effective - Soundex or edit distance or character transition probs?
+
+

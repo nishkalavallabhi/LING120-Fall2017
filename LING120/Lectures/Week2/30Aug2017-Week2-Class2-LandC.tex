@@ -1,0 +1,260 @@
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+
+\author[Sowmya Vajjala]{Instructor: Sowmya Vajjala}
+
+
+\title[LING 120]{LING 120: Language and Computers}
+\subtitle{Semester: FALL 2017}
+
+\date{30 Aug 2017}
+
+\institute{Iowa State University, USA}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\begin{frame}\titlepage
+\end{frame}
+
+\begin{frame}
+\frametitle{Class outline}
+\begin{itemize}
+\item Question from last class %(10)
+\item Writing aids: Introduction 
+\item Spelling correction: overview %15min - types of spelling errors etc.
+\item Grammar correction: overview %10min  -types of grammar errors etc
+\item Style checkers: overview %5min
+%An exercise for 10min
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Speech Recognition and Back to Speech}
+If I record you speak, use ASR and convert it to text, and then use TTS to convert it again to speech - do you think I will get your speech sample back? Write a short explanation for your answer (few sentences). You can either write it now and give it, or post on Canvas forum for today and get attendance.
+\end{frame}
+
+\begin{frame}
+\frametitle{Your Answers}
+\begin{itemize}
+\item Answer 1: No, because the TTS will have a built-in voice. Also, ASR could make mistake of disfluencies in speech.
+\item Answer 2: No, there will be errors in software when processing so much of data.
+\item Answer 3: Depends on the length of the sample. If it is one word, it may work.
+\item Answer 4: No. You can make something simple from complex, but not complex from simple. 
+\item Answer 5: Yes they would be the same because ASR is speech to text, TTS is text to speech. 
+\item Answer 6: No, because speech sample is deleted after speech recognition. 
+\item Answer 7: No, even if everything is accurate, my specific tone/accent etc are gone. 
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Why it is a "no"}
+\begin{itemize}
+\item There will be errors in ASR, and in TTS
+\item Specifics of a voice will be gone even if the TTS has my own customized voice.
+\item Depends on the length of the sample - is a great point! Haven't thought of that before. 
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Today's joke from Iowa State Daily}
+\framesubtitle{Something you will appreciate now}
+Q: What do you call a deer with no eyes? \pause \\
+A: No eye deer.
+\end{frame}
+
+\begin{frame}
+\frametitle{}
+\begin{center}
+\Large Writers' Aids: An overview
+\end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{Topic 2: Writers' Aids}
+\begin{itemize}
+\item Spelling correction
+\item Grammar correction
+\item Style checkers
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Look at this text} \small
+\textit{Aoccdrnig to a rscheearch at Cmabrigde Uinervtisy, it deosn't mttaer in waht oredr the ltteers in a wrod are, the olny iprmoetnt tihng is taht the frist and lsat ltteer be at the rghit pclae. The rset can be a toatl mses and you can sitll raed it wouthit porbelm. Tihs is bcuseae the huamn mnid deos not raed ervey lteter by istlef, but the wrod as a wlohe.}
+\end{frame}
+
+\begin{frame}
+\frametitle{}
+\begin{itemize}
+\item Keeping theories aside, clearly, we are able to make sense out of a mis-spelt text.
+\item So why bother about learning spelling, about winning spelling bee etc? \pause
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Look at another text} \small
+\textit{My name is Susan. I'm forteen and I life in Germany. My hobbys are go to discos, sometimes I hear music in the radio. In the summer I go bathing in a lake. I haven't any brothers or sisters. We take busses to scool. I visit year 9 at my school. My birthday is on Friday. I hope I will become a new guitar.
+I'm looking forward to get a e-mail from you.}
+\\ source: \url{http://www.englisch-hilfen.de/en/exercises/structures/error_text_letter.htm}
+\end{frame}
+
+\begin{frame}
+\frametitle{}
+\begin{itemize}
+\item The text is written in a non-standard fashion, but it is not incomprehensible.
+\item Why bother about grammar then?? Are we just being too picky??
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Why bother about spelling}
+\begin{itemize}
+\item Mis-spellings can sometimes makes it difficult to understand what is being written
+\item Standard spelling makes it possible to communicate clearly across multiple cultures, dialects etc.
+\item Difficult to find the meaning of a mis-spelt word from a dictionary lookup (both for humans and for computers)
+\item If a name is mis-spelled, it is even more difficult to look up. 
+\item For a machine, it is even more difficult than humans.
+\item It makes Text to speech conversion difficult
+\item In formal settings, mis-spellings will not give a favorable impression about the author
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Why bother about grammar}
+\begin{itemize}
+\item That example was an easy one. Bad grammar can cause misunderstandings due to miscomprehension
+\item It also poses problems for machines that interact with human language
+\item good writing includes proper grammar, and again, in formal settings, bad grammar does not give a good impression on the author.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Where/How are spell checkers used?}
+\begin{itemize}
+\item Some are interactive spelling checkers - as you type, they highlight your mistakes, and offers you choices.
+\\ $\Rightarrow$ computer has to quickly respond to your speed.
+\item Some give suggestions after you finish the entire thing
+\item Sometimes, they even automatically correct words whenever the spell checker thinks you are using wrong spelling (on phones, especially)
+\\ $\Rightarrow$ harder than just detecting errors, but also potentially risky if the writer does not proof read.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Spelling Error Detection and Correction}
+\begin{itemize}
+\item What is more difficult? detection or correction? \pause
+\item Let us take this sentence: "I will come back ater break". "ater" is the error - perhaps easy to detect. But what is the correction? later? water? after? \pause
+\item Even detection can be difficult! Let us say there is this sentence: "Toll and sort people" \\
+ - there is no spelling error if you look word by word. But clearly there is something wrong.  \pause
+\item Note: You need to detect to be able to correct. 
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Detecting and Correcting Grammar Errors}
+Again, two possible ways.
+\begin{itemize}
+\item Create (and program) large set of language rules (e.g., patterns such as "I have" but not "I has" is correct etc) \pause
+\item Or use large collections of \textbf{n-gram} frequencies to identify abnormal word combinations and tag them as grammar errors. 
+\begin{itemize}
+\item n-grams are sequences of n-words.
+\item "I" is a unigram/1-gram. "I have" is a bi-gram/2-gram "I have a" is a trigram/3-gram. "I have a book" is a 4-gram. and so on.
+\item Assuming I have large collections of n-gram frequencies from English language, any new n-gram I see (e.g., "I has a book" may have a frequency of 0 and hence it is a grammar error).
+\end{itemize} \pause
+\item Use this frequency information to then suggest alternatives to the writer.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Style Checkers}
+\begin{itemize}
+\item These are related to spelling and grammar checkers, but are more "prescriptive" in nature
+\item If an organization has a certain style of writing (e.g., don't use passive voice, use data as a plural word etc.), the job of a style checker is to make sure authors stick to that style. \pause
+\item They would still require all the analysis that a spelling and grammar checker would demand. 
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{}
+\begin{center}
+\Large More on Spelling Check and Spelling Correction
+\end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{Causes of spelling errors on computers}
+\framesubtitle{Keyboard usage}
+\begin{itemize}
+\item missing a space while typing can create a typo (the man becoming theman)
+\item or accidentally inserting a space. 
+\item Note: both these can also result in real words.\pause
+\item proximity on keyboard: ran and tan (r and t are neighbors), okay and play, might and mihgt etc. 
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Causes of spelling errors on computers}
+\framesubtitle{Based on how they sound}
+\begin{itemize}
+\item Two words sounding the same (read-red, cite-sight, their-there etc) \pause
+\item Replacing a letter with similar sound (krack-crack, hole-whole etc) \pause
+\item Guessing spelling by hearing the sound (sientist)
+\end{itemize}
+... there are also other kinds of errors. 
+\end{frame}
+
+\begin{frame}
+\frametitle{How does a spell checker work with these errors?}
+Broadly, we can classify all spelling and grammar error issues into three kinds of problems:
+\begin{itemize}
+\item non-word error detection and correction
+\item isolated word error detection and correction
+\item context dependent word error detection and correction (i.e., grammar check and correction)
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Non-word errors}
+Isn't this easy? Why not just have a dictionary? \pause
+
+What should the dictionary contain?
+\begin{itemize}
+\item All words? What about capitalization, punctuation? (are Yes, yes, yes: the same word?) \pause
+\item What about plurals, past-tense and other "inflections" (should I have separate entries for eat, ate, eaten; car, cars etc?) \pause
+\item What should I do about words like don't? \pause
+\item Or those such as "at least" which are multi-word units? \pause
+\item Hyphenated and unhyphenated forms of the same word? \pause
+\item Abbreviations
+\item Names (how many names can I add to dictionary?)
+\item Foreign words? 
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Okay, then?}
+Assuming we take some decision about these, two tasks remain related to dictionary:
+\begin{itemize}
+\item Constructing a dictionary
+\item Figuring out some way to quickly retrieve information from the dictionary (how can I pick 10000th word in a dictionary of 6 million words in 0.5 seconds?)
+\end{itemize} \pause
+... additionally, we will need some way to accomodate other aspects such as inflections, names etc. \\
+ \medskip \small (continued in next class)
+\end{frame}
+
+\begin{frame}
+\frametitle{Next Class ..} 
+\begin{itemize}
+\item Topic: Isolated word spelling correction - details
+\item Readings: Read up to Section 2.3 in Chapter 2 in the textbook.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Attendance exercise}
+Open MS Word on the lab computer and give examples for different kinds of spelling errors (nonword, isolated word, contextual) and the suggestions given by the software. You can post in the forum for today on Canvas. 
+\end{frame}
+
+\end{document}
+gen notes: on Spell checking wednesday - can ask them how do we use google as spell checker. Is it good? What are the problems? (moral: under the hood 8)

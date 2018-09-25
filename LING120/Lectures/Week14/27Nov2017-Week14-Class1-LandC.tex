@@ -1,0 +1,176 @@
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{url}
+
+\author[Sowmya Vajjala]{Instructor: Sowmya Vajjala}
+
+\title[LING 120]{LING 120: \\ Language and Computers}
+\subtitle{Semester: Fall '17}
+
+\date{27 November 2017}
+
+\institute{Iowa State University, USA}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\begin{frame}\titlepage
+\end{frame}
+
+%Oral	presentations	(one	or	two	days	of	the	week);	review	
+%concepts	as	needed	to	prepare	for	the	final	exam
+
+\begin{frame}
+\frametitle{Today's class}
+\begin{itemize}
+\item Announcements, Reminders
+\item Assignment 6 discussion
+\item Writing systems with unusual realization: Braille, Sign Language
+\item Transliteration
+\item Chinese Exercise by Linghan %Have a backup for this.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\centering
+\Large Announcements
+\end{frame}
+
+\begin{frame}
+\frametitle{Final Exam}
+\begin{itemize}
+\item Carries: 20\% of your grade, and involves writing 2 short essays. 
+\item Has to be submitted in three parts:
+\begin{enumerate}
+\item Write a part of the assignment (one question) and submit by 2nd December - 5\%
+\item Do an in-class peer review of one of your classmate's work (6th December) - 5\% - if you don't come to class, you don't get graded for this part.
+\item Final submission (of both the questions) - 10\%
+\end{enumerate}
+\item Exact details about word limits, how to submit and list of topics for questions are on Canvas. 
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Grade improvement: oral exam timings}
+People wanting grade improvement, choose one of the following timings and get back:
+\begin{itemize}
+\item 4th December: 1-2 pm, 5-5:30 pm. 6th December: 1-2pm, 5-5:30 pm. 8th December: 1-2 pm.
+\item Choose a time (actual oral exam will only take 15 min), choose any 3 topics from the course, and send me an email.
+\item Show up at the time you promised to come, and I will pick one (or two) of the three topics and ask questions.
+\item Maximum improvement: 5\% (I am flexible if you do extraordinarily well)
+\item One person opted to do a classroom oral presentation instead of this (Today)
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Course Evaluations}
+\begin{itemize}
+\item You should have gotten emails about course evaluations
+\item Please do it. It will be useful for future iterations of the course
+\item Be polite and don't use bad language in reviews - they are not read only by me. They are read by several other people in the adminstration
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{General plan for these 2 weeks}
+\begin{itemize}
+\item This week:
+\begin{itemize}
+\item Writing systems with unusual realization
+\item How does machine translation work?
+\end{itemize}
+\item Next week:
+\begin{itemize}
+\item Revision and group projects
+\item Makeup for grade - oral exams during office hours
+\item Final exam Part 2 in the class (6th Dec)
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\centering
+\Large Assignment 6 Discussion
+\end{frame}
+
+\begin{frame}
+\frametitle{A6 - Q1}
+\begin{itemize}
+\item Question: experience while interacting with an assistant system like Siri, Cortana etc
+\item Things I looked for: accuracy of speech recognition, understanding what was being said, responding with correct answers, What it does if it is not sure about what you asked for, or about the answer for your question, Response to impolite comments, how it does with different accents etc. 
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{A6 - Q2}
+\begin{itemize}
+\item Question: I described 4 applications, and asked about which is easier to build, and how are these evaluated.
+\item Answers:
+\begin{itemize}
+\item Weather system would be easier to build (if we assume Eliza needs to be more sophisticated and conduct actual conversations). (my order: weather, laptop servicing bot, summarizer, general chatbot)
+\item Evaluation: Since all these involve producing text, common part is - naturalness of the text, grammatical correctness, intelligibility etc. 
+\item Specifics: weather app: accuracy of template filling. laptop servicing - customer satisfaction. summarizer: did it pick right sentences as important ones. chatbot: turntaking, human like conversation, understanding what we said etc. 
+\end{itemize} \pause
+\item Recent news about conversational bots: \url{http://convai.io/} and my experience with this. 
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\centering
+\Large Writing Systems with Unusual Realization
+\end{frame}
+
+\begin{frame}
+\frametitle{Sign Language-1}
+\begin{itemize}
+\item What makes it different from inputting text in other languages? \pause
+\item In your view, how do you think Sign language is represented? Can it have a unicode range? \pause
+\item What are some potential challenges you see when using a laptop to "type" in Sign language? \pause
+\item What are some other solutions one need to figure out while using sign languages with computers? (think in terms of all topics we saw so far)
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Sign Language -2}
+\begin{itemize}
+\item Sign language keyboard app: \url{http://signily.com/product/} \pause
+\item Sign language translator app: \url{https://www.youtube.com/watch?v=fEvvrLpTb0E}
+\item Sign language in Unicode: \url{https://en.wikipedia.org/wiki/SignWriting}
+\item Other possible way of input with Sign language: Gesture Recognition (No deployable solutions yet)
+\item IPA like system for Sign languages (btw, there are several sign languages, not one!): Hamburg Sign Language Notation System
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Braille}
+\begin{itemize}
+\item Has anyone seen someone entering text in Braille? (need not be on a computer) \pause
+\item How is it represented on computer? Do you think it has a unicode range? \pause \\ \url{https://en.wikipedia.org/wiki/Braille_Patterns}
+\item What are some challenges with using Braille on computers? \pause
+\item \url{http://braillebug.afb.org/braille_technology.asp}
+\item Touchscreen Braille writer: \url{https://www.wired.com/2011/10/touchscreen-braille-writer/}
+\item Demo: \url{https://www.youtube.com/watch?v=ABfCXJSjAq0}
+\end{itemize}
+\end{frame}
+
+%Briefly on Transliteration 10 min
+\begin{frame}
+\frametitle{Transliteration}
+\begin{itemize}
+\item We saw a small exercise on Marathi transliteration just before the break. 
+\item What is transliteration? \pause
+\item What are some potential challenges with doing automatic transliteration? \pause
+\item Did you see transliteration being a built-in component in any software tools we explored so far? \pause
+\item What about cases where there is no strict one-one mapping? People can type in whatever spelling they find appropriate. How do we deal with that situation?
+\end{itemize}
+\end{frame}
+
+\begin{frame} %10min 
+\centering
+\Large Issues in Chinese-English translation - Presentation by Linghan Zhang
+\end{frame}
+
+\end{document}

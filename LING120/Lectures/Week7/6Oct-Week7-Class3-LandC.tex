@@ -1,0 +1,136 @@
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+
+\author[Sowmya Vajjala]{Instructor: Sowmya Vajjala}
+
+
+\title[LING 120]{LING 120, Fall 2017: \\ Language and Computers}
+\subtitle{Topic: Overview of Natural Language Processing}
+
+\date{6 October 2017 (Week 7)}
+
+\institute{Iowa State University, USA}
+
+\usepackage{graphicx}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\begin{frame}\titlepage
+\end{frame}
+
+\begin{frame}%2minutes
+\frametitle{Class outline}
+\begin{itemize}
+\item Conclusion of NLP tasks: overview
+%\item Quick introduction to machine learning and its relevance for language processing
+\item Assignment 4 Description %10min
+\item Midterm presentations: reminders and instructions%5min
+\item (if there is time) Preparation time for midterms%20min
+\item Reminder: Assignment 3 due tomorrow! 
+\end{itemize}
+Next week's plan: Your midterm presentations; General review and feedback. 
+\end{frame}
+
+\begin{frame}
+\frametitle{NLP tasks: Discourse Analysis}
+\begin{itemize}
+\item Task: Given a text (more than one sentence), analyze the relationships between sentences, identify what pronouns refer to what nouns, how is the same entity referred in different ways (Barack Obama, Obama, The President and so on).
+\item Application: Text summarization, Question-Answering, Essay scoring etc.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{NLP tasks: Entailment and Paraphrasing}
+\begin{itemize}
+\item Tasks: Analyzing if the meaning of a sentence is entailed in another sentence, if both sentences are paraphrases of each other etc.,
+\item Uses: question answering, information extraction, summarization etc.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{NLP tasks: Language Generation}
+\begin{itemize}
+\item Task: Generate text automatically.
+\item Texts should be grammatically and semantically correct. Should be human like.
+\item One of the toughest problems in NLP. 
+\item Example: Create weather reports, match summaries, reports etc. automatically (without human intervention!)
+\item arria.com is a software company that does this successfully for English.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{So...?}
+\begin{itemize}
+\item Okay, so all these are different tasks. how do we solve them? \pause
+\item You have seen the "Madly Ambiguous" game in the last class. How do you think are they trying to detect the "sense" of usage of words? \pause
+\item We saw the video of Maluuba a couple of week's back, where the program answers a question about something in the text. Intuitively, what is happening there?
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Solving all these problems for realworld applications}
+\begin{itemize}
+\item What is involved?:
+\begin{enumerate}
+\item Some large database of properties of language (may be elaborate dictionaries, lists of synonyms, antonyms etc.) \pause
+\item Programs that tell the computer the rules of the language, and uses these databases along with the rules. \pause
+\item Some means of making the computer work with "new, unseen" sentences, and words in the language. \pause
+\item Where it is difficult to write these computer programs, there should also be some way to make the computer "learn" from lots and lots of examples of language use. (Machine Learning)
+\end{enumerate}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Let us go back to Madly Ambiguous}
+\begin{itemize}
+\item How do they do that? 
+\item What among these above steps are they using? (What do you think?)
+\item \url{http://madlyambiguous.osu.edu:1035/}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Assignment 4 Description}
+\begin{itemize}
+\item Topic: NLP overview
+\item Usual format - 2 questions, 10 marks etc. 
+\item Deadline: 21 October
+\item Description: On Canvas
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Instructions for Midterms}
+\begin{itemize}
+\item Instructions on Canvas: FOLLOW THEM
+\item Stick to the time allotted (10min). Take questions, if any (3-5 min).
+\item Team assignments and Schedule: On Canvas - announcements page (and in slides) \pause
+\item Laptop to present: you can get yours, or use mine. If you use mine, send pdfs or use google slides on the browser. 
+\item If you are sending/sharing the presentation online, do it by 1pm on your presentation day!
+\item A team member who does not attend their own team presentation will not get any grade. (20\% will vanish into air!)
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Attendance question for today}
+\begin{itemize}
+\item Let us say you have a detailed dictionary for English (mentioning words, their possible parts of speech, examples, synonyms, antonyms, everything).
+\item I now ask you to write a computer application that takes a English sentence, and identifies the individual parts of speech of words
+\\ e.g., in "This is my LING120 class". This and my are pronouns, is is a auxiliary verb, LING120 is a proper noun, class is a common noun. 
+\item Based on your current intuition, what will you do to write such a program on paper? 
+\item (You don't need to know any programming to answer this)
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Next Week}
+\begin{itemize}
+\item Monday and Wednesday - your midterm presentations
+\item Friday - Review, Feedback
+\end{itemize}
+Good luck with your preparation!!
+\end{frame}
+
+\end{document}
+

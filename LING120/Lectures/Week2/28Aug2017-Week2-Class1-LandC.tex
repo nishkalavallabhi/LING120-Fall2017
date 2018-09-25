@@ -1,0 +1,198 @@
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+
+\author[Sowmya Vajjala]{Instructor: Sowmya Vajjala}
+
+
+\title[LING 120]{LING 120: Language and Computers}
+\subtitle{Semester: FALL 2017}
+
+\date{28 Aug 2017}
+
+\institute{Iowa State University, USA}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\begin{frame}\titlepage
+\end{frame}
+
+\begin{frame}
+\frametitle{Class Outline}
+\begin{itemize}
+\item Quick recap of last week %5-10min
+\item Encoding speech  - continued
+\item Relating written and spoken language - an overview
+\item Wrapping up Topic 1! %talk here about language input
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Encoding Text: Recap from last week}
+\begin{itemize}
+\item ASCII - 7 bit encoding
+\item Extending ASCII to accomodate new languages
+\item Unicode
+\item 3 different ways of Unicode conversion: UTF8, UTF16, UTF32
+\item How different writing systems look different on browser if you change the encoding. 
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Review question on encoding text}
+What is "America" (English letters) in UTF-8, UTF-16, UTF-32 - will it be same, or similar, or totally different? \pause
+\medskip \\ Useful website (you can also use this for Assignment 1 instead of the other one): \url{http://macchiato.com/unicode/convert.html}
+\end{frame}
+
+\begin{frame}
+\frametitle{Encoding Speech: Recap from last week}
+What speech properties are interesting?
+\begin{itemize}
+\item speech rate (fluency, number of pauses etc)
+\item Loudness/amplitude 
+\item What sound frequencies correspond to different characters in human speech? 
+\item How can we tell sounds apart with this frequency information?
+\item Pitch - how high or low is a sound (useful especially for identifying vowels)
+\item Intonation - rise and fall of pitch
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Question from Friday's class}
+The following phrases/sentences represent some mishearings of songs and possible errors that a speech recognition software can also make. Try to guess an alternate version and post your responses on Canvas forum for today. That is your attendance for today:
+\begin{itemize}
+\item Example: "How to wreck a nice beach" - "How to recognise speech"
+\item "Secret agent man" %secret asian man
+\item "when the rainbow shaves you clean, you'll know" %when the rain washes you clean you'll know
+\item "with my knee on my mind" %with money on my mind
+\item "language interpreters" %language and computers
+\item "synthetic meditation" %syntactic annotation 
+\end{itemize}
+Note: People who did not answer did not get attendance for friday. 
+\end{frame}
+
+\begin{frame}
+\frametitle{Answers}
+\begin{itemize}
+\item "Secret agent man" - secret asian man
+\item "when the rainbow shaves you clean, you'll know" - when the rain washes you clean you'll know
+\item "with my knee on my mind" - with money on my mind
+\item "language interpreters" - language and computers
+\item "synthetic meditation" - syntactic annotation 
+\end{itemize}
+(First 3 are popular Mondegreens, last 2 are speech recogniser output for my speech).
+\end{frame}
+
+\begin{frame}
+\frametitle{Some of your responses from Friday}
+\begin{itemize}
+\item Will you grab my peas - heard as "will you grab my keys"
+\item "grey chair" for "great share"
+\item "The slicer for the next class" - "The slides for phonetics class"
+\item ”language interpreters” - languish under orders, or vintage interloper?
+"Synthetic meditation." - "Should take medication."/"send the invitation"
+\end{itemize}
+note: Some popular Mondegreens can be seen at: \url{http://www.uh.edu/~mbarber/mondegreens.html}. You can see more on youtube.
+\end{frame}
+
+\begin{frame}
+\frametitle{How do we understand speech signals on a computer?}
+\begin{itemize}
+\item Oscillogram: shows time on X-axis and changes in signal amplitude on y-axis 
+\item Spectrogram: shows frequency on X-axis and time on Y-axis
+\item Darkness of a spectrogram: loudness of a sound.
+\item Sound frequencies, change of darkness, (and several other such measures) help us measure speech and understand words in the speech. \pause
+\item Let us see an example using one software that analyses speech - Praat \pause 
+\end{itemize}
+Note: Read "Under the Hood 1" in Chapter 1 if you are curious about Spectrograms. Some of it is a part of Assignment 1 too!
+\end{frame}
+
+\begin{frame}
+\frametitle{Praat}
+\begin{itemize}
+\item Praat is a free software package to analyse speech signals.
+\item You can record sounds, visualize the spectrogram and oscillograms for these sounds with Praat.
+\item You can pull out a smaller section of these files for further analysis
+\item You can alter the speech files and create new files
+\item You can even measure things like: creakiness, nasality in voice etc!
+\end{itemize}
+More information: \url{http://savethevowels.org/praat/UsingPraatforLinguisticResearchLatest.pdf}
+\end{frame}
+
+\begin{frame}
+\frametitle{Quick Demo of Praat}
+How do three ways of saying the same word differ in their spectrogram images? \pause \\ 
+... You will need to work with this tool for your Assignment 1!
+\end{frame}
+
+\begin{frame}
+\frametitle{Relationship between written and spoken language}
+\begin{itemize}
+\item Automatic speech recognition: converting a speech sample into text representation
+\item Text to speech: converting text into speech representation
+\end{itemize}
+\pause According to you, which is easier? Why?
+\end{frame}
+
+\begin{frame}
+\frametitle{Automatic Speech Recognition}
+Some major issues in achieving this: 
+\begin{itemize}
+\item Converting those recordings into individual sounds, and words.
+\item Identifying word boundaries (remember: there are no punctuation markers or white spaces as in text!)
+\item Different people pronounce differently - different accents.
+\item The issue of multiple languages occurs here too!
+\end{itemize}
+More on this when we talk about dialog systems. 
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Text to Speech Synthesis}
+Seems like a trivial task?
+\begin{itemize}
+\item Isn't it just recording individual sounds (called phones) and stitching them together by looking at text and form speech automatically??? \pause
+\item Yes, but different phones also sound differently based on their neighboring sounds - we need context for right pronunciation of a word and its phones! \pause
+\item Further, the synthesized sound should feel human, not look robotic! 
+\item Question: how many of you use Waze? Did you try changing voices of the speakers?
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Writing Text on computer}
+We saw how to render a text on a computer (using encodings) so that you can read. We also saw a little bit about how to represent speech. What about writing?
+\pause \\ Three common methods exist: 
+\begin{itemize}
+\item Using keyboard layouts
+\item Using soft keyboards
+\item Using phonetic mappings
+\end{itemize}
+Useful link: \url{https://en.wikipedia.org/wiki/Input_method}
+\end{frame}
+
+\begin{frame}
+\frametitle{Next Class}
+\begin{itemize}
+\item Topic 2: Writing aids - introduction %5-10min
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Attendance for Today}
+If I record you speak, use ASR and convert it to text, and then use TTS to convert it again to speech - do you think I will get your speech sample back? Write a short explanation for your answer (few sentences). You can either write it now and give it, or post on Canvas forum for today and get attendance.
+\end{frame}
+
+\end{document}
+
+Start monday talking about mondegreens:
+%Exercise: "How to wreck a nice beach" vs "How to recognise speech", vs "How to wreck a nice beach"
+
+%Question for Monday: mention one of the problems of speech processing (no breakup of words) and ask how they will solve it. 
+
+%continuation on friday: \item How do we type them on a computer? %10min
+%and then to speech.
+%friday exercise: how do i type Telugu on MacOS?
+%Assignment 1 description
+
+%question for next monday: %\item To Do (optional): Figure out how to type German specific characters on your computer (umlauts)

@@ -1,0 +1,104 @@
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{subfig}
+\author[Sowmya Vajjala]{Instructor: Sowmya Vajjala}
+
+
+\title[LING 120]{LING 120, Fall 2017 \\ Language and Computers}
+
+\date{27 September 2017}
+
+\institute{Iowa State University, USA}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\begin{frame}\titlepage
+\end{frame}
+
+\begin{frame}
+\frametitle{Class outline}%5minutes
+\begin{enumerate}
+\item Regular Expressions: brief tutorial
+\item Group exercise
+\end{enumerate}
+\end{frame} %\item Assignment 3 Description - do this on Monday
+
+\begin{frame}
+\frametitle{Last class' Exercise}
+\begin{itemize}
+\item Consider this passage: \\ \small 
+\textit{This assignment consists of two questions and carries a to-
+tal of 10 marks. Submit your assignment as a *PDF* file and name it as:
+your first name–your last name.pdf Late submissions are allowed, but will
+not be awarded full credit.} \normalsize
+\item I want to identify the number of times \textbf{s} appeared at the beginning of the word in this. I use the regular expression: \textbackslash Ws
+\item What is the precision and what is the recall for this regular expression in terms of achieving its goal? \pause
+\item What will the expression capture? \pause (s in submissions).
+\item Ideally, it should capture Submit as well (although my question was ambiguous).
+\item Now, what is Precision and Recall for both cases?
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Regular Expressions: Recap from Monday}
+\begin{itemize}
+\item Regular expressions are a kind of language to describe patterns that follow a structure in text data
+\item E.g., words that start with a letter, a particular pattern of spelling (e.g., ss appearing 2 times in a word), a pattern of words (e.g., not only ... ... but also), phone numbers, all urls in a wikipedia page etc.
+\item Some basics we saw on Monday: usage of +, *, ., $|$, $[:alpha:], [:digit:], [:punct:]$ 
+\item All programming languages, and lot of software such as MS Word support regular expression based search in documents.
+\end{itemize}
+See also: \url{http://www.petefreitag.com/cheatsheets/regex/}
+\end{frame}
+
+\begin{frame}
+\frametitle{Regular Expressions in real life}
+\begin{itemize}
+\item Manning's video: \url{https://www.youtube.com/watch?v=RGLldper5II}
+\item \url{https://www.linkedin.com/pulse/regular-expressions-real-life-lyle-wincentsen/}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Grep and Egrep - tools to search large files/folders using regular expressions}
+\begin{itemize}
+\item Available by default on Unix based operating systems (Mac, Ubuntu etc)
+\item Windows 10 perhaps supports it (I don't know - you should tell me!) \pause
+\item Brief demo of using egrep:
+\begin{verbatim}
+egrep 'Stockmann' pg2446.txt
+egrep '[[:digit:]]' pg2446.txt
+egrep 'Petra|Horster' pg2446.txt
+egrep 'Petra|Horster' pg2446.txt | wc
+egrep 'th(e|i)s' pg2446.txt
+egrep 'th(e|i)s*' pg2446.txt
+\end{verbatim}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Regular Expressions: Practice}
+\framesubtitle{Attendance exercise -answer on Canvas}
+Work in groups of 3 people, download pg2446.txt from \url{https://goo.gl/gSnhGD}, and answer the following questions using regular expressions.
+\begin{itemize}
+\item Whose name occurs more at the beginning of a line - Dr Stockmann or Mrs Stockmann? How many times?
+\item What is the difference between \textit{egrep 't.s' pg2446.txt} and \textit{egrep 't.*s' pg2446.txt}?
+\item In general, what will the pattern \textit{joh?n} identify? How will you verify?
+\item What will \textit{egrep -o 'Stockmann' pg2446.txt} do? Why? What happens if you remove the -o?
+\item How many times do Stockmann and Petra appear in the same line in this file?
+\end{itemize}
+Note: Regular expressions cheatsheets, egrep help can be found by searching online. 
+\end{frame}
+
+\begin{frame}
+\frametitle{Next Class}
+\begin{itemize}
+\item Conclusion of Topic 4
+\item Time to decide on your Midterm topics
+\item To do: Know your mid-term team members. Start thinking about a topic.
+\end{itemize}
+\end{frame}
+
+\end{document}

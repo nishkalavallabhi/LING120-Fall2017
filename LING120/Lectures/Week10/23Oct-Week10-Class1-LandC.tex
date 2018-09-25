@@ -1,0 +1,287 @@
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[graphicx]
+
+\author[Sowmya Vajjala]{Instructor: Sowmya Vajjala}
+
+
+\title[LING 120]{LING 120: \\ Language and Computers}
+\subtitle{Semester: FALL 2017}
+
+\date{23 October 2017}
+
+\institute{Iowa State University, USA}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\begin{frame}\titlepage
+\end{frame}
+
+\begin{frame}
+\frametitle{Outline}
+\begin{itemize}
+\item Assignment 4 is graded  - questions discussion %5 min
+\item Assignment 5 description %5 min 
+\item Quick recap of last week %10 min
+\item Evaluation of classification %20 min
+\item Recommended Reading before next class: 5.5.1 in the textbook.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{}
+\begin{center}
+\Large Assignment discussion
+\end{center}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Assignment 4 discussion - Question 1}
+\begin{itemize}
+\item Different outputs corenlp.run gives: POS, NER, Dependencies, OpenIE
+\item POS: useful for various tasks - spell checkers, understanding the right sense of usage of a word, doing any of the other three tasks.
+\item NER: identifying names of persons, organizations etc. Useful to extract specific information, do question answering etc.
+\item Dependencies: This is again useful for question answering, generally understanding the meaning of a text, even for doing grammar correction etc. 
+\item Open IE - question answering
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Assignment 4 discussion - Question 2}
+\begin{itemize}
+\item Different ways of developing a spell-checker:
+\begin{enumerate}
+\item Dictionary + POS
+\item N-grams
+\item Relationships between words (e.g., which words appear together in context, which words do not appear together)
+\end{enumerate} \pause
+\item Spell checking for Turkish like languages (called "agglutinative")
+\begin{itemize}
+\item generally requires you to break up those long words into constituent words, and then checking for what suffixes, or words go together in the language.
+\item It is more difficult to come up with efficient spell checkers for such languages than for English. 
+\item May be you can write very detailed, and specific rules for Turkish; or you can use machine learning. 
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Assignment 5 description}
+\begin{itemize}
+\item Deadline: November 4th
+\item 2 questions, related to text classification
+\begin{enumerate}
+\item How will you do automatic language identification - what sort of resources do you need, what are the different steps, evaluation etc (basically, a summary of what you learnt so far in text classification, but for a different problem) 
+\item How to do "opinion mining" (similar to above, but focus on designing domain specific features)
+\end{enumerate}
+\item Details on Canvas. 
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{General Remarks}
+\begin{itemize}
+\item When I ask for descriptive answers, I ask for descriptive answers.
+\item Sloppy writing is hard to evaluate leniently. 
+\item Getting it wrong is okay, as long as you are able to explain your logic clearly
+\item ... and hopefully, you get the right answers after discussion.
+\item Make use of office hours if you don't know what my expectations are, or if you don't know how to write.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{}
+\begin{center}
+\Large Recap of last week
+\end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{Steps in Text classification?}
+\begin{itemize}
+\item We need a collection of example texts with known categories (Training data)
+\item We need to extract "features" we want the machine to learn from these (feature extraction)
+\item We should take these extracted features and give them to a "learning algorithm" (training/learning phase)
+\item Evaluate if the "learned" classifier is doing well by "testing" it with a few more examples with known categories (test data, evaluation)
+\item If you are happy, start using in some real-world application!!
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Attendance Question from last class}
+In the five steps in text classification I mentioned earlier today, what do you think is the most difficult step for doing spam classification? Why? \pause
+\begin{itemize}
+\item Training data:  2
+\item Feature extraction: 7 
+\item Learning: 7
+\item Evaluation: 2
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{}
+\begin{center}
+\Large Measuring success in text classification
+\end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{Steps in Text classification?}
+\begin{itemize}
+\item We need a collection of example texts with known categories (Training data)
+\item We need to extract "features" we want the machine to learn from these (feature extraction)
+\item We should take these extracted features and give them to a "learning algorithm" (training/learning phase)
+\item \textbf{Evaluate if the "learned" classifier is doing well by "testing" it with a few more examples with known categories (test data, evaluation)}
+\item If you are happy, start using in some real-world application!!
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Questions and Terminology}
+\begin{itemize}
+\item Let us say I am running a test to diagnose whether a patient has a disease or not. If disease or not is a classification problem, there are 4 possible outcomes: 
+\begin{itemize}
+\item If the test says positive, and it turns out the patient actually has the disease: TRUE POSITIVE
+\item If the test says negative, and patient does not have the disease: TRUE NEGATIVE 
+\item If the test says positive, and the patient does not have the disease:? \pause FALSE POSITIVE
+\item If the test says negative, and the patient has the disease:? \pause FALSE NEGATIVE
+\item In this specific scenario, what is more dangerous: FALSE POSITIVE OR FALSE NEGATIVE? 
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Evaluating classification: Accuracy}
+\begin{itemize}
+\item Prediction accuracy on test set: typically used in most machine learning evaluation for text, images, videos, all sorts of things:  $\frac{TP+TN}{TP+TN+FP+FN}$
+\item What does this tell us? \pause
+\item This tells us number about the overall percentage correct classifications by the classifier. 
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Evaluating classification: Precision and Recall}
+\begin{itemize}
+\item Precision = $\frac{TP}{TP+FP}$ 
+\item In search: ($\frac{Relevant\thinspace documents\thinspace shown\thinspace in\thinspace results}{Total\thinspace number\thinspace of \thinspace documents\thinspace in\thinspace the\thinspace results})$
+\item  Recall = $\frac{TP}{TP+FN}$
+\item In search: ($\frac{Relevant\thinspace documents\thinspace shown\thinspace in\thinspace results}{Total\thinspace number\thinspace of \thinspace relevant \thinspace documents\thinspace in\thinspace the\thinspace web})$
+\item Recall is also referred to as "Sensitivity" in Medicine.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Evaluating classification in medical context}
+\begin{itemize}
+\item Sensitivity is typically used in medicine, primarily focuses on questions such as: "does the patient actually have the disease as the test says?"
+\item If a high-sensitivity test predicts patient has a disease, it is very likely he really has the disease. \pause
+\item Specificity is typically used to focus on the does the patient actually not have the disease?"
+\item if a high specificity test told you the patient does not have a disease, may be he likely does not have the disease and don't need further tests.
+\item FYI: Sensitivity = $\frac{TP}{TP+FN}$, Specificity= $\frac{TN}{TN+FP}$
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Evaluating classification: Others}
+\begin{itemize}
+\item Several other measures: \url{https://en.wikipedia.org/wiki/Precision_and_recall}
+\item What is a good evaluation measure depends on what you want out of your classifier. \pause
+\item if you are using a spam classifier, would you want to see have more True positives (not-spam means not-spam) or more True-negatives (spam is spam) or both? \pause
+\item What is the difference between high true-positives and high true-negatives? 
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Evaluating classification: Confusion Matrix}
+\begin{itemize}
+\item A confusion matrix is a summary of all those measures we discussed so far. You can get each of those from such a matrix. 
+\item Let us take an example matrix for a classification problem with two categories: Correct, Wrong
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{lll}
+    actual. $\downarrow$ pred. $\rightarrow$&\textbf{Correct}&\textbf{Incorrect}\\
+    \hline
+    \textbf{Correct}&400&100\\ \hline
+    \textbf{Incorrect}&100&400\\ \hline
+    \end{tabular}
+    \end{center}
+\end{table}
+\item You can calculate your TP, TN, FP, FN, Accuracy, Precision (whatever measure you want) !
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Confusion Matrix for more than two categories}
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{llll|}
+    actual. $\downarrow$ pred. $\rightarrow$&\textbf{Sports}&\textbf{Politics} & \textbf{Others}\\
+    \hline
+    \textbf{Sports}&400&50&50\\ \hline
+    \textbf{Politics}&75&425&0\\ \hline
+    \textbf{Others}&0&0&500\\
+    \end{tabular}
+    \end{center}
+\end{table}
+\begin{itemize}
+\item How many total news items are there in this dataset? \pause
+\item How many were classified correctly? \pause
+\item How do you get True positives, True negatives etc in this case? 
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Steps in Text classification?}
+\begin{itemize}
+\item We need a collection of example texts with known categories (Training data)
+\item We need to extract "features" we want the machine to learn from these (feature extraction)
+\item We should take these extracted features and give them to a "learning algorithm" (training/learning phase)
+\item Evaluate if the "learned" classifier is doing well by "testing" it with a few more examples with known categories (test data, evaluation)
+\item \textbf{If you are happy, start using in some real-world application!!}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{}
+Ultimate evaluation for a real-world application is customer satisfaction, increase in revenue etc. (beyond all these measures)
+\end{frame}
+
+\begin{frame}
+\frametitle{Attendance Exercise}
+\framesubtitle{Write on paper or submit on Canvas}
+\begin{enumerate}
+\item Let us say you are working on classifying webpages as "appropriate" and "inappropriate" for children and you developed two classifiers. 
+\item Now let us say you have a test set that has 500 texts labeled "appropriate", 250 texts labeled "inappropriate".
+\item Here are the confusion matrices for Classifiers A and B: \\
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{r}
+  \begin{tabular}{|l|r|r|}
+    \hline
+    (A) pred. $\rightarrow$&\textbf{App.}&\textbf{Inapp.}\\
+    \hline
+    \textbf{App.}&490&10\\ \hline
+    \textbf{Inapp.}&200&50\\ \hline
+    \end{tabular}
+  \begin{tabular}{|l|r|r|}
+    \hline
+    (B) pred. $\rightarrow$&\textbf{App.}&\textbf{Inapp.}\\
+    \hline
+    \textbf{App.}&400&100\\ \hline
+    \textbf{Inapp.}&50&200\\ \hline
+    \end{tabular}
+\end{tabular}
+\caption{Confusion matrices for two scenarios}
+\end{center}
+\end{table}
+\item What is the classification accuracy for A and B respectively?
+\item According to you, which one is doing better? A or B? Why? 
+\end{enumerate}
+\end{frame}
+
+\end{document}
+
+
+
